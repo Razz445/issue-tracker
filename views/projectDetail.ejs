@@ -1,0 +1,115 @@
+<!-- projectDetail.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue Tracker - Project Detail</title>
+<style>
+    /* styles.css */
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    height: 100px;
+  }
+  
+  input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #555;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px;
+  }
+  
+  li {
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    margin-bottom: 5px;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #333;
+  }
+</style>
+
+</head>
+<body>
+  <h1><%= project.name %></h1>
+
+  <h2>Issues</h2>
+
+  <form>
+    <label for="labels">Filter by Labels:</label>
+    <select id="labels" name="labels" multiple>
+      <option value="label1">Label 1</option>
+      <option value="label2">Label 2</option>
+      <option value="label3">Label 3</option>
+      <!-- Add more options for other labels -->
+    </select>
+
+    <label for="author">Filter by Author:</label>
+    <input type="text" id="author" name="author">
+
+    <input type="text" id="search" name="search" placeholder="Search by title or description">
+
+    <button type="submit">Apply Filters</button>
+  </form>
+
+  <ul>
+    <% issues.forEach(issue => { %>
+      <li>
+        <h3><%= issue.title %></h3>
+        <p><%= issue.description %></p>
+        <p>Labels: <%= issue.labels.join(', ') %></p>
+        <p>Author: <%= issue.author %></p>
+      </li>
+    <% }) %>
+  </ul>
+
+  <a href="/create-issue">Create New Issue</a>
+
+  <script src="/scripts.js"></script> <!-- Adjust the path if necessary -->
+</body>
+</html>

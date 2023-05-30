@@ -1,0 +1,65 @@
+<!-- createProject.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue Tracker - Create Project</title>
+<style>
+/* styles.css */
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+
+</style>
+
+</head>
+<body>
+  <h1>Create Project</h1>
+
+  <form action="/create-project" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required>
+
+    <button type="submit">Create</button>
+  </form>
+
+  <script src="/scripts.js"></script> <!-- Adjust the path if necessary -->
+</body>
+</html>
